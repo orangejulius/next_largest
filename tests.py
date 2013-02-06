@@ -44,3 +44,9 @@ def test_answer_is_subchild():
     node.insert(4)
 
     assert_equal(4, nextLargest(node.left))
+
+def test_minInSubtree():
+    node = Node(5)
+    node.insert(4)
+
+    assert_equal(node.left, minInSubtree(node))
