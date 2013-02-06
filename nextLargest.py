@@ -31,3 +31,13 @@ def minInSubtree(node):
         return minInSubtree(node.left)
     else:
         return node
+
+#the smallest larger ancestor is the first ancestor whos child enroute to the node
+#is the left side child
+def getSmallestLargerAncestor(node):
+    #traverse along all ancestors who have the current node as right side child
+    while node.parent and node.parent.right == node:
+        node = node.parent
+    #return parent if this node is the right side child. otherwise no ancestor is larger
+    if node.parent and node.parent.left == node:
+        return node.parent
