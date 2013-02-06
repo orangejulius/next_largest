@@ -30,10 +30,11 @@ def nextLargest(node):
 # the smallest node in a subtree can be found by traversing
 # left as long as possible
 def minInSubtree(node):
-    if node and node.left:
-        return minInSubtree(node.left)
-    else:
-        return node
+    if not node:
+        return None
+    while node.left:
+        node = node.left
+    return node
 
 #the smallest larger ancestor is the first ancestor whos child enroute to the node
 #is the left side child
