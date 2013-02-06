@@ -16,3 +16,6 @@ class Node:
             else:
                 self.right = Node(data)
                 self.right.parent = self
+
+def nextLargest(node):
+    return min(node.parent.data, node.right.data)
