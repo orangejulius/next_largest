@@ -18,12 +18,13 @@ class Node:
                 self.right.parent = self
 
 def nextLargest(node):
-    if node.right and not node.parent:
-        return node.right.data
+    minInRightSubtree = minInSubtree(node.right)
+    if minInRightSubtree and not node.parent:
+        return minInRightSubtree.data
     elif node.parent and not node.right:
         return node.parent.data
     else:
-        return min(node.parent.data, node.right.data)
+        return min(node.parent.data, minInRightSubtree.data)
 
 def minInSubtree(node):
     if node and node.left:
