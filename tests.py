@@ -59,3 +59,33 @@ def test_answer_is_grandparent():
                    #      6 <-
 
     assert_equal(7, nextLargest(node.left.right))
+
+def test_getSmallestLargerAncestor1():
+    """
+    Test parent returned when the parent is the smaller of the two ancestors (and both are larger than the node)
+    """
+    node = Node(7)
+    node.insert(6)
+    node.insert(5)
+
+    assert_equal(6, getSmallestLargerAncestor(node.left.left).data)
+
+def test_getSmallestLargerAncestor2():
+    """
+    Test grandparent returned when the parent is smaller than the node but the grandparent is larger
+    """
+    node = Node(7)
+    node.insert(5)
+    node.insert(6)
+
+    assert_equal(7, getSmallestLargerAncestor(node.left.right).data)
+
+def test_getSmallestLargerAncestor3():
+    """
+    Test grandparent returned when the parent is smaller than the node but the great-grandparent is larger
+    """
+    node = Node(9)
+    node.insert(5)
+    node.insert(6)
+    node.insert(7)
+    assert_equal(9, getSmallestLargerAncestor(node.left.right.right).data)
