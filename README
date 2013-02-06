@@ -1,0 +1,4 @@
+Problem: given a pointer to an arbitrary node, return the smallest node that is larger than that node
+
+Code is in nextLargest.py
+tests in tests.py, run with nose
