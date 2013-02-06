@@ -27,6 +27,8 @@ def nextLargest(node):
     else:
         return None
 
+# the smallest node in a subtree can be found by traversing
+# left as long as possible
 def minInSubtree(node):
     if node and node.left:
         return minInSubtree(node.left)
