@@ -89,3 +89,10 @@ def test_getSmallestLargerAncestor3():
     node.insert(6)
     node.insert(7)
     assert_equal(9, getSmallestLargerAncestor(node.left.right.right).data)
+
+def test_no_ancestors_or_children():
+    """
+    Just for completeness :)
+    """
+    node = Node(42)
+    assert_equal(None, nextLargest(node))
