@@ -24,3 +24,9 @@ def nextLargest(node):
         return node.parent.data
     else:
         return min(node.parent.data, node.right.data)
+
+def minInSubtree(node):
+    if node and node.left:
+        return minInSubtree(node.left)
+    else:
+        return node
