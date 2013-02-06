@@ -25,7 +25,7 @@ def nextLargest(node):
     elif smallestLargerAncestor:
         return smallestLargerAncestor.data
     else:
-        return min(smallestLargerAncestor.data, minInRightSubtree.data)
+        return None
 
 def minInSubtree(node):
     if node and node.left:
