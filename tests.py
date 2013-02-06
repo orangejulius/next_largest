@@ -33,3 +33,14 @@ def test_one_child():
     node.insert(7)
 
     assert_equal(7, nextLargest(node))
+
+def test_answer_is_subchild():
+    """
+    The next largest value is not a direct ancestor or descendent
+    """
+    node = Node(7)
+    node.insert(3)
+    node.insert(5)
+    node.insert(4)
+
+    assert_equal(4, nextLargest(node.left))
