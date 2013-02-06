@@ -50,3 +50,12 @@ def test_minInSubtree():
     node.insert(4)
 
     assert_equal(node.left, minInSubtree(node))
+
+def test_answer_is_grandparent():
+    node = Node(7) #      7
+    node.insert(4) #     /
+    node.insert(6) #    4
+                   #     \
+                   #      6 <-
+
+    assert_equal(7, nextLargest(node.left.right))
