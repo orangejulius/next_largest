@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.left = self.right = self.parent = 0
+        self.left = self.right = self.parent = None
 
     def insert(self, data):
         if data < self.data:
@@ -18,4 +18,9 @@ class Node:
                 self.right.parent = self
 
 def nextLargest(node):
-    return min(node.parent.data, node.right.data)
+    if node.right and not node.parent:
+        return node.right.data
+    elif node.parent and not node.right:
+        return node.parent.data
+    else:
+        return min(node.parent.data, node.right.data)
