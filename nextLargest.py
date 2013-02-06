@@ -17,6 +17,20 @@ class Node:
                 self.right = Node(data)
                 self.right.parent = self
 
+# find the next largest node in a binary tree
+#
+# there are two places to look for the next largest node: the right
+# subtree and the ancestors. the left subtree contains only nodes
+# smaller than the curernt node, so it doesn't have to be considered
+#
+# an ancestor node COULD be the next largest, but only if the current node
+# is in its left subtree (the ancestor node is larger)
+# however such an ancestor would also have all the current node's descendents
+# as its own decendends, meaning it is larger than all of them, and thus not
+# the NEXT largest
+#
+# so, return the smallest node in the right subtree if it exists, otherwise
+# return the next largest ancestor
 def nextLargest(node):
     minInRightSubtree = minInSubtree(node.right)
     smallestLargerAncestor = getSmallestLargerAncestor(node)
